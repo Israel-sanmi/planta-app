@@ -1,24 +1,38 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { useFonts } from "expo-font";
+import { createStackNavigator } from "@react-navigation/stack";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect, useState } from "react";
+import IntroductionScreen from "./screens/intro";
+import { SafeAreaView, Text, View } from "react-native";
+import { Colors } from "@/constants/Colors";
+import SplashText from "./screens/intro/splash/SplashText";
+import GetStarted from "./screens/started/getStarted";
+import LogIn from "./screens/Logs/logIn";
+import SignUp from "./screens/Logs/signUp";
+import HomeScreen from "./screens/home/home";
+import ForgotPassword from "./screens/Logs/forgotPassword";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const [showSplash, setShowSplash] = useState(true);
+
+  const Stack = createStackNavigator();
+
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    MontserratBold: require("../assets/fonts/Montserrat-Bold.ttf"),
+    MonteserratSemi: require("../assets/fonts/Montserrat-SemiBold.ttf"),
+    RobotoMedium: require("../assets/fonts/Roboto-Medium.ttf"),
+    RobotoRegular: require("../assets/fonts/Roboto-Regular.ttf"),
   });
 
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
+      const timer = setTimeout(() => {
+        setShowSplash(false);
+      }, 3000);
+      return () => clearTimeout(timer);
     }
   }, [loaded]);
 
@@ -27,11 +41,25 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
+    <SafeAreaView style={{ flex: 1 }}>
+      {showSplash ? (
+        <SplashText />
+      ) : (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen
+            name="screens/intro/index"
+            component={IntroductionScreen}
+          />
+          <Stack.Screen
+            name="screens/started/getStarted"
+            component={GetStarted}
+          />
+          <Stack.Screen name="screens/Logs/logIn" component={LogIn} />
+          <Stack.Screen name="screens/Logs/signUp" component={SignUp} />
+          <Stack.Screen name="screens/home/home" component={HomeScreen} />
+          <Stack.Screen name="screens/Logs/forgotPassword" component={ForgotPassword} />
+        </Stack.Navigator>
+      )}
+    </SafeAreaView>
   );
 }
