@@ -61,7 +61,7 @@ const GetStarted = ({ navigation }: any) => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity  onPress={()=>{
-          navigation.navigate("screens/home/home")
+          navigation.navigate("screens/BottomNav")
         }}>
           <Text
             style={{

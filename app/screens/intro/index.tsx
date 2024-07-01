@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   slide: {
     flex: 1,
     width: width,
-    paddingHorizontal: 10,
+    paddingHorizontal: 16,
     backgroundColor: Colors.light,
   },
   indicatorContainer: {

@@ -35,7 +35,7 @@ const LogIn = ({ navigation }: any) => {
   const [openModal, setOpenModal] = useState(false);
   const openModalFunct = () => {
     setOpenModal((prev) => !prev);
-    navigation.replace("screens/home/home");
+    navigation.replace("screens/BottomNav");
   };
   const [openErrorModal, setOpenErrorModal] = useState(false);
   const openErrorModalFunct = () => {
@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    paddingHorizontal: 10,
+    paddingHorizontal: 16,
   },
   field: {
     flexDirection: "row",

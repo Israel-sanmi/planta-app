@@ -127,7 +127,7 @@ const SignUp = ({ navigation }: any) => {
         <View
           style={{
             marginVertical: 10,
-            paddingHorizontal: 10,
+            paddingHorizontal: 16,
           }}
         >
           <Checkbox
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    paddingHorizontal: 10,
+    paddingHorizontal: 16,
   },
   field: {
     flexDirection: "row",

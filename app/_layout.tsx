@@ -11,6 +11,8 @@ import LogIn from "./screens/Logs/logIn";
 import SignUp from "./screens/Logs/signUp";
 import HomeScreen from "./screens/home/home";
 import ForgotPassword from "./screens/Logs/forgotPassword";
+import React from "react";
+import BottomNav from "@/app/screens/BottomNav";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -56,7 +58,8 @@ export default function RootLayout() {
           />
           <Stack.Screen name="screens/Logs/logIn" component={LogIn} />
           <Stack.Screen name="screens/Logs/signUp" component={SignUp} />
-          <Stack.Screen name="screens/home/home" component={HomeScreen} />
+          <Stack.Screen name="screens/BottomNav" component={BottomNav} />
+
           <Stack.Screen name="screens/Logs/forgotPassword" component={ForgotPassword} />
         </Stack.Navigator>
       )}
