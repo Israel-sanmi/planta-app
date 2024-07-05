@@ -55,8 +55,8 @@ const HomeScreen = () => {
   const renderPlants = ({ item }: any) => (
     <View
           style={{
-            width: width * 0.8,
-            height: 370,
+            width: width * 0.75,
+            height: 320,
             backgroundColor: Colors.lightHover,
             borderRadius: 14,
             padding: 10,
@@ -96,7 +96,7 @@ const HomeScreen = () => {
           <Image source={require("@/assets/images/onboard3.png")} style={{
               width: width * 0.8,
               resizeMode: "contain",
-              height: height * 0.35,
+              height: height * 0.3,
               marginVertical: 5
           }}/>
           <View
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
-    backgroundColor:"white"
+    backgroundColor:"white",
   },
   avatar: {
     backgroundColor: "gray",

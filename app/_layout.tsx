@@ -48,7 +48,7 @@ export default function RootLayout() {
         <SplashText />
       ) : (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen
+          {/* <Stack.Screen
             name="screens/intro/index"
             component={IntroductionScreen}
           />
@@ -57,10 +57,10 @@ export default function RootLayout() {
             component={GetStarted}
           />
           <Stack.Screen name="screens/Logs/logIn" component={LogIn} />
-          <Stack.Screen name="screens/Logs/signUp" component={SignUp} />
+          <Stack.Screen name="screens/Logs/signUp" component={SignUp} /> */}
           <Stack.Screen name="screens/BottomNav" component={BottomNav} />
 
-          <Stack.Screen name="screens/Logs/forgotPassword" component={ForgotPassword} />
+          {/* <Stack.Screen name="screens/Logs/forgotPassword" component={ForgotPassword} /> */}
         </Stack.Navigator>
       )}
     </SafeAreaView>
